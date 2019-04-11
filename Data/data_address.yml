@@ -1,0 +1,18 @@
+# 用我们 get_data 里的规定 将
+# ("李三", "33333333333", "上海市", "上海市", "徐汇区", "徐家汇地铁口A出口")
+# 存储起来
+test_address_new:
+  test_address_new_1:
+    receipt: 李五
+    phone: 18510782345
+    province: 北京市
+    city: 北京市
+    area: 大兴区
+    detail_info: 8号线育新站A出口
+  test_address_new_2:
+    receipt: 赵六
+    phone: 18510782345
+    province: 上海市
+    city: 上海市
+    area: 徐汇区
+    detail_info: 8号线育新站A出口

@@ -1,0 +1,514 @@
+<ns0:test-suite xmlns:ns0="urn:model.allure.qatools.yandex.ru" start="1554991147592" stop="1554991210884">
+  <name>Scripts.test_address</name>
+  <labels/>
+  <test-cases>
+    <test-case start="1554991147592" status="failed" stop="1554991209525">
+      <name>TestAddress.test_address_new[obj0]</name>
+      <failure>
+        <message>ConnectionResetError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。</message>
+        <stack-trace>self = &lt;Scripts.test_address.TestAddress object at 0x0412F830&gt;
+obj = ['李五', 18510782345, '北京市', '北京市', '大兴区', '8号线育新站A出口']
+
+    @pytest.mark.parametrize("obj", get_data("address", "address_new"))
+    def test_address_new(self, obj):
+        # 进入主界面,通掉用page_home里的页面动作
+        Page().init_page_home.into_page()
+    
+    
+        # 点击我，通过掉用page_myself里的页面动作
+        self.use_myself=Page().init_page_myself
+        self.use_myself.click_myself()
+    
+        # 判断用户是否登录 通过掉用page_myself里的页面动作
+        if not self.use_myself.is_login():
+            self.use_myself.click_exist_num()
+            self.use_myself.input_num(18610453007)
+            self.use_myself.input_pwd(123456)
+            self.use_myself.click_login()
+    
+        # 点击设置 通过掉用page_myself里的页面动作
+&gt;       self.use_myself.click_setting()
+
+Scripts\test_address.py:33: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+d:\python\lib\site-packages\allure\common.py:62: in impl
+    return func(*a, **kw)
+Page\page_myself.py:67: in click_setting
+    self.base_click(self.setting_btn_feature)
+Base\base.py:31: in base_click
+    self.base_find_element(feature).click()
+Base\base.py:19: in base_find_element
+    return wait.until(lambda x: x.find_element(*ele_feature))
+d:\python\lib\site-packages\selenium\webdriver\support\wait.py:71: in until
+    value = method(self._driver)
+Base\base.py:19: in &lt;lambda&gt;
+    return wait.until(lambda x: x.find_element(*ele_feature))
+d:\python\lib\site-packages\selenium\webdriver\remote\webdriver.py:712: in find_element
+    {'using': by, 'value': value})['value']
+d:\python\lib\site-packages\selenium\webdriver\remote\webdriver.py:199: in execute
+    response = self.command_executor.execute(driver_command, params)
+d:\python\lib\site-packages\selenium\webdriver\remote\remote_connection.py:395: in execute
+    return self._request(command_info[0], url, body=data)
+d:\python\lib\site-packages\selenium\webdriver\remote\remote_connection.py:463: in _request
+    resp = opener.open(request, timeout=self._timeout)
+d:\python\lib\urllib\request.py:526: in open
+    response = self._open(req, data)
+d:\python\lib\urllib\request.py:544: in _open
+    '_open', req)
+d:\python\lib\urllib\request.py:504: in _call_chain
+    result = func(*args)
+d:\python\lib\urllib\request.py:1346: in http_open
+    return self.do_open(http.client.HTTPConnection, req)
+d:\python\lib\urllib\request.py:1321: in do_open
+    r = h.getresponse()
+d:\python\lib\http\client.py:1331: in getresponse
+    response.begin()
+d:\python\lib\http\client.py:297: in begin
+    version, status, reason = self._read_status()
+d:\python\lib\http\client.py:258: in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;socket.SocketIO object at 0x041796B0&gt;, b = &lt;memory at 0x03F64780&gt;
+
+    def readinto(self, b):
+        """Read up to len(b) bytes into the writable buffer *b* and return
+            the number of bytes read.  If the socket is non-blocking and no bytes
+            are available, None is returned.
+    
+            If *b* is non-empty, a 0 return value indicates that the connection
+            was shutdown at the other end.
+            """
+        self._checkClosed()
+        self._checkReadable()
+        if self._timeout_occurred:
+            raise OSError("cannot read from timed out object")
+        while True:
+            try:
+&gt;               return self._sock.recv_into(b)
+E               ConnectionResetError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+
+d:\python\lib\socket.py:586: ConnectionResetError</stack-trace>
+      </failure>
+      <attachments/>
+      <labels>
+        <label name="severity" value="normal"/>
+        <label name="thread" value="15556-MainThread"/>
+        <label name="host" value="LAPTOP-MV93LOBF"/>
+        <label name="framework" value="pytest"/>
+        <label name="language" value="cpython3"/>
+      </labels>
+      <steps>
+        <step start="1554991200580" status="passed" stop="1554991202937">
+          <name>执行点我</name>
+          <title>执行点我</title>
+          <attachments/>
+          <steps/>
+        </step>
+        <step start="1554991204081" status="failed" stop="1554991209159">
+          <name>点击设置</name>
+          <title>点击设置</title>
+          <attachments/>
+          <steps/>
+        </step>
+      </steps>
+    </test-case>
+    <test-case start="1554991209526" status="broken" stop="1554991210877">
+      <name>TestAddress.test_address_new[obj1]</name>
+      <failure>
+        <message>URLError: &lt;urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。&gt;</message>
+        <stack-trace>self = &lt;urllib.request.HTTPHandler object at 0x01292DB0&gt;
+http_class = &lt;class 'http.client.HTTPConnection'&gt;
+req = &lt;selenium.webdriver.remote.remote_connection.Request object at 0x01292C90&gt;
+http_conn_args = {}, host = '127.0.0.1:4723'
+h = &lt;http.client.HTTPConnection object at 0x012FC370&gt;
+
+    def do_open(self, http_class, req, **http_conn_args):
+        """Return an HTTPResponse object for the request, using http_class.
+    
+            http_class must implement the HTTPConnection API from http.client.
+            """
+        host = req.host
+        if not host:
+            raise URLError('no host given')
+    
+        # will parse host:port
+        h = http_class(host, timeout=req.timeout, **http_conn_args)
+        h.set_debuglevel(self._debuglevel)
+    
+        headers = dict(req.unredirected_hdrs)
+        headers.update(dict((k, v) for k, v in req.headers.items()
+                            if k not in headers))
+    
+        # TODO(jhylton): Should this be redesigned to handle
+        # persistent connections?
+    
+        # We want to make an HTTP/1.1 request, but the addinfourl
+        # class isn't prepared to deal with a persistent connection.
+        # It will try to read all remaining data from the socket,
+        # which will block while the server waits for the next request.
+        # So make sure the connection gets closed after the (only)
+        # request.
+        headers["Connection"] = "close"
+        headers = dict((name.title(), val) for name, val in headers.items())
+    
+        if req._tunnel_host:
+            tunnel_headers = {}
+            proxy_auth_hdr = "Proxy-Authorization"
+            if proxy_auth_hdr in headers:
+                tunnel_headers[proxy_auth_hdr] = headers[proxy_auth_hdr]
+                # Proxy-Authorization should not be sent to origin
+                # server.
+                del headers[proxy_auth_hdr]
+            h.set_tunnel(req._tunnel_host, headers=tunnel_headers)
+    
+        try:
+            try:
+                h.request(req.get_method(), req.selector, req.data, headers,
+&gt;                         encode_chunked=req.has_header('Transfer-encoding'))
+
+d:\python\lib\urllib\request.py:1318: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;http.client.HTTPConnection object at 0x012FC370&gt;, method = 'POST'
+url = '/wd/hub/session'
+body = b'{"desiredCapabilities": {"platformName": "android", "platformVersion": "5.1", "deviceName": "***", "noReset": true, ...ame": "Uiautomator2", "appPackage": "com.yunmall.lc", "appActivity": "com.yunmall.ymctoc.ui.activity.LaunchActivity"}}'
+headers = {'Accept': 'application/json', 'Connection': 'close', 'Content-Length': '294', 'Content-Type': 'application/json;charset=UTF-8', ...}
+
+    def request(self, method, url, body=None, headers={}, *,
+                encode_chunked=False):
+        """Send a complete request to the server."""
+&gt;       self._send_request(method, url, body, headers, encode_chunked)
+
+d:\python\lib\http\client.py:1239: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;http.client.HTTPConnection object at 0x012FC370&gt;, method = 'POST'
+url = '/wd/hub/session'
+body = b'{"desiredCapabilities": {"platformName": "android", "platformVersion": "5.1", "deviceName": "***", "noReset": true, ...ame": "Uiautomator2", "appPackage": "com.yunmall.lc", "appActivity": "com.yunmall.ymctoc.ui.activity.LaunchActivity"}}'
+headers = {'Accept': 'application/json', 'Connection': 'close', 'Content-Length': '294', 'Content-Type': 'application/json;charset=UTF-8', ...}
+encode_chunked = False
+
+    def _send_request(self, method, url, body, headers, encode_chunked):
+        # Honor explicitly requested Host: and Accept-Encoding: headers.
+        header_names = frozenset(k.lower() for k in headers)
+        skips = {}
+        if 'host' in header_names:
+            skips['skip_host'] = 1
+        if 'accept-encoding' in header_names:
+            skips['skip_accept_encoding'] = 1
+    
+        self.putrequest(method, url, **skips)
+    
+        # chunked encoding will happen if HTTP/1.1 is used and either
+        # the caller passes encode_chunked=True or the following
+        # conditions hold:
+        # 1. content-length has not been explicitly set
+        # 2. the body is a file or iterable, but not a str or bytes-like
+        # 3. Transfer-Encoding has NOT been explicitly set by the caller
+    
+        if 'content-length' not in header_names:
+            # only chunk body if not explicitly set for backwards
+            # compatibility, assuming the client code is already handling the
+            # chunking
+            if 'transfer-encoding' not in header_names:
+                # if content-length cannot be automatically determined, fall
+                # back to chunked encoding
+                encode_chunked = False
+                content_length = self._get_content_length(body, method)
+                if content_length is None:
+                    if body is not None:
+                        if self.debuglevel &gt; 0:
+                            print('Unable to determine size of %r' % body)
+                        encode_chunked = True
+                        self.putheader('Transfer-Encoding', 'chunked')
+                else:
+                    self.putheader('Content-Length', str(content_length))
+        else:
+            encode_chunked = False
+    
+        for hdr, value in headers.items():
+            self.putheader(hdr, value)
+        if isinstance(body, str):
+            # RFC 2616 Section 3.7.1 says that text default has a
+            # default charset of iso-8859-1.
+            body = _encode(body, 'body')
+&gt;       self.endheaders(body, encode_chunked=encode_chunked)
+
+d:\python\lib\http\client.py:1285: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;http.client.HTTPConnection object at 0x012FC370&gt;
+message_body = b'{"desiredCapabilities": {"platformName": "android", "platformVersion": "5.1", "deviceName": "***", "noReset": true, ...ame": "Uiautomator2", "appPackage": "com.yunmall.lc", "appActivity": "com.yunmall.ymctoc.ui.activity.LaunchActivity"}}'
+
+    def endheaders(self, message_body=None, *, encode_chunked=False):
+        """Indicate that the last header line has been sent to the server.
+    
+            This method sends the request to the server.  The optional message_body
+            argument can be used to pass a message body associated with the
+            request.
+            """
+        if self.__state == _CS_REQ_STARTED:
+            self.__state = _CS_REQ_SENT
+        else:
+            raise CannotSendHeader()
+&gt;       self._send_output(message_body, encode_chunked=encode_chunked)
+
+d:\python\lib\http\client.py:1234: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;http.client.HTTPConnection object at 0x012FC370&gt;
+message_body = b'{"desiredCapabilities": {"platformName": "android", "platformVersion": "5.1", "deviceName": "***", "noReset": true, ...ame": "Uiautomator2", "appPackage": "com.yunmall.lc", "appActivity": "com.yunmall.ymctoc.ui.activity.LaunchActivity"}}'
+encode_chunked = False
+
+    def _send_output(self, message_body=None, encode_chunked=False):
+        """Send the currently buffered request and clear the buffer.
+    
+            Appends an extra \\r\\n to the buffer.
+            A message_body may be specified, to be appended to the request.
+            """
+        self._buffer.extend((b"", b""))
+        msg = b"\r\n".join(self._buffer)
+        del self._buffer[:]
+&gt;       self.send(msg)
+
+d:\python\lib\http\client.py:1026: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;http.client.HTTPConnection object at 0x012FC370&gt;
+data = b'POST /wd/hub/session HTTP/1.1\r\nAccept-Encoding: identity\r\nContent-Length: 294\r\nHost: 127.0.0.1:4723\r\nUser-Ag...on-urllib/3.6\r\nAccept: application/json\r\nContent-Type: application/json;charset=UTF-8\r\nConnection: close\r\n\r\n'
+
+    def send(self, data):
+        """Send `data' to the server.
+            ``data`` can be a string object, a bytes object, an array object, a
+            file-like object that supports a .read() method, or an iterable object.
+            """
+    
+        if self.sock is None:
+            if self.auto_open:
+&gt;               self.connect()
+
+d:\python\lib\http\client.py:964: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;http.client.HTTPConnection object at 0x012FC370&gt;
+
+    def connect(self):
+        """Connect to the host and port specified in __init__."""
+        self.sock = self._create_connection(
+&gt;           (self.host,self.port), self.timeout, self.source_address)
+
+d:\python\lib\http\client.py:936: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+address = ('127.0.0.1', 4723), timeout = &lt;object object at 0x00DDBFB0&gt;
+source_address = None
+
+    def create_connection(address, timeout=_GLOBAL_DEFAULT_TIMEOUT,
+                          source_address=None):
+        """Connect to *address* and return the socket object.
+    
+        Convenience function.  Connect to *address* (a 2-tuple ``(host,
+        port)``) and return the socket object.  Passing the optional
+        *timeout* parameter will set the timeout on the socket instance
+        before attempting to connect.  If no *timeout* is supplied, the
+        global default timeout setting returned by :func:`getdefaulttimeout`
+        is used.  If *source_address* is set it must be a tuple of (host, port)
+        for the socket to bind as a source address before making the connection.
+        A host of '' or port 0 tells the OS to use the default.
+        """
+    
+        host, port = address
+        err = None
+        for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+            af, socktype, proto, canonname, sa = res
+            sock = None
+            try:
+                sock = socket(af, socktype, proto)
+                if timeout is not _GLOBAL_DEFAULT_TIMEOUT:
+                    sock.settimeout(timeout)
+                if source_address:
+                    sock.bind(source_address)
+                sock.connect(sa)
+                # Break explicitly a reference cycle
+                err = None
+                return sock
+    
+            except error as _:
+                err = _
+                if sock is not None:
+                    sock.close()
+    
+        if err is not None:
+&gt;           raise err
+
+d:\python\lib\socket.py:724: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+address = ('127.0.0.1', 4723), timeout = &lt;object object at 0x00DDBFB0&gt;
+source_address = None
+
+    def create_connection(address, timeout=_GLOBAL_DEFAULT_TIMEOUT,
+                          source_address=None):
+        """Connect to *address* and return the socket object.
+    
+        Convenience function.  Connect to *address* (a 2-tuple ``(host,
+        port)``) and return the socket object.  Passing the optional
+        *timeout* parameter will set the timeout on the socket instance
+        before attempting to connect.  If no *timeout* is supplied, the
+        global default timeout setting returned by :func:`getdefaulttimeout`
+        is used.  If *source_address* is set it must be a tuple of (host, port)
+        for the socket to bind as a source address before making the connection.
+        A host of '' or port 0 tells the OS to use the default.
+        """
+    
+        host, port = address
+        err = None
+        for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+            af, socktype, proto, canonname, sa = res
+            sock = None
+            try:
+                sock = socket(af, socktype, proto)
+                if timeout is not _GLOBAL_DEFAULT_TIMEOUT:
+                    sock.settimeout(timeout)
+                if source_address:
+                    sock.bind(source_address)
+&gt;               sock.connect(sa)
+E               ConnectionRefusedError: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+d:\python\lib\socket.py:713: ConnectionRefusedError
+
+During handling of the above exception, another exception occurred:
+
+self = &lt;Scripts.test_address.TestAddress object at 0x01292BF0&gt;
+
+    def setup(self):
+&gt;       self.action = Page().init_page_address
+
+Scripts\test_address.py:12: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+Page\page.py:10: in __init__
+    self.driver = driver()
+Base\get_dirver.py:16: in driver
+    driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", desired_caps)
+d:\python\lib\site-packages\appium\webdriver\webdriver.py:36: in __init__
+    super(WebDriver, self).__init__(command_executor, desired_capabilities, browser_profile, proxy, keep_alive)
+d:\python\lib\site-packages\selenium\webdriver\remote\webdriver.py:87: in __init__
+    self.start_session(desired_capabilities, browser_profile)
+d:\python\lib\site-packages\selenium\webdriver\remote\webdriver.py:141: in start_session
+    'desiredCapabilities': desired_capabilities,
+d:\python\lib\site-packages\selenium\webdriver\remote\webdriver.py:199: in execute
+    response = self.command_executor.execute(driver_command, params)
+d:\python\lib\site-packages\selenium\webdriver\remote\remote_connection.py:395: in execute
+    return self._request(command_info[0], url, body=data)
+d:\python\lib\site-packages\selenium\webdriver\remote\remote_connection.py:463: in _request
+    resp = opener.open(request, timeout=self._timeout)
+d:\python\lib\urllib\request.py:526: in open
+    response = self._open(req, data)
+d:\python\lib\urllib\request.py:544: in _open
+    '_open', req)
+d:\python\lib\urllib\request.py:504: in _call_chain
+    result = func(*args)
+d:\python\lib\urllib\request.py:1346: in http_open
+    return self.do_open(http.client.HTTPConnection, req)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;urllib.request.HTTPHandler object at 0x01292DB0&gt;
+http_class = &lt;class 'http.client.HTTPConnection'&gt;
+req = &lt;selenium.webdriver.remote.remote_connection.Request object at 0x01292C90&gt;
+http_conn_args = {}, host = '127.0.0.1:4723'
+h = &lt;http.client.HTTPConnection object at 0x012FC370&gt;
+
+    def do_open(self, http_class, req, **http_conn_args):
+        """Return an HTTPResponse object for the request, using http_class.
+    
+            http_class must implement the HTTPConnection API from http.client.
+            """
+        host = req.host
+        if not host:
+            raise URLError('no host given')
+    
+        # will parse host:port
+        h = http_class(host, timeout=req.timeout, **http_conn_args)
+        h.set_debuglevel(self._debuglevel)
+    
+        headers = dict(req.unredirected_hdrs)
+        headers.update(dict((k, v) for k, v in req.headers.items()
+                            if k not in headers))
+    
+        # TODO(jhylton): Should this be redesigned to handle
+        # persistent connections?
+    
+        # We want to make an HTTP/1.1 request, but the addinfourl
+        # class isn't prepared to deal with a persistent connection.
+        # It will try to read all remaining data from the socket,
+        # which will block while the server waits for the next request.
+        # So make sure the connection gets closed after the (only)
+        # request.
+        headers["Connection"] = "close"
+        headers = dict((name.title(), val) for name, val in headers.items())
+    
+        if req._tunnel_host:
+            tunnel_headers = {}
+            proxy_auth_hdr = "Proxy-Authorization"
+            if proxy_auth_hdr in headers:
+                tunnel_headers[proxy_auth_hdr] = headers[proxy_auth_hdr]
+                # Proxy-Authorization should not be sent to origin
+                # server.
+                del headers[proxy_auth_hdr]
+            h.set_tunnel(req._tunnel_host, headers=tunnel_headers)
+    
+        try:
+            try:
+                h.request(req.get_method(), req.selector, req.data, headers,
+                          encode_chunked=req.has_header('Transfer-encoding'))
+            except OSError as err: # timeout error
+&gt;               raise URLError(err)
+E               urllib.error.URLError: &lt;urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。&gt;
+
+d:\python\lib\urllib\request.py:1320: URLError</stack-trace>
+      </failure>
+      <attachments/>
+      <labels>
+        <label name="severity" value="normal"/>
+        <label name="thread" value="15556-MainThread"/>
+        <label name="host" value="LAPTOP-MV93LOBF"/>
+        <label name="framework" value="pytest"/>
+        <label name="language" value="cpython3"/>
+      </labels>
+      <steps/>
+    </test-case>
+    <test-case start="1554991210878" status="canceled" stop="1554991210878">
+      <name>TestAddress.test_address_del</name>
+      <failure>
+        <message>Skipped: unconditional skip</message>
+        <stack-trace></stack-trace>
+      </failure>
+      <attachments/>
+      <labels>
+        <label name="severity" value="normal"/>
+        <label name="thread" value="15556-MainThread"/>
+        <label name="host" value="LAPTOP-MV93LOBF"/>
+        <label name="framework" value="pytest"/>
+        <label name="language" value="cpython3"/>
+      </labels>
+      <steps/>
+    </test-case>
+    <test-case start="1554991210884" status="canceled" stop="1554991210884">
+      <name>TestAddress.test_address_del_all</name>
+      <failure>
+        <message>Skipped: unconditional skip</message>
+        <stack-trace></stack-trace>
+      </failure>
+      <attachments/>
+      <labels>
+        <label name="severity" value="normal"/>
+        <label name="thread" value="15556-MainThread"/>
+        <label name="host" value="LAPTOP-MV93LOBF"/>
+        <label name="framework" value="pytest"/>
+        <label name="language" value="cpython3"/>
+      </labels>
+      <steps/>
+    </test-case>
+  </test-cases>
+</ns0:test-suite>

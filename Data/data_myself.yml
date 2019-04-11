@@ -1,0 +1,18 @@
+# [(186104530071, 123456),(186104530071, 1234567890123456),(186104530071, 12345678)]
+test_login_no_num:
+  test_login_no_num_1:
+    num: 186104530071
+    pwd: 123456
+#  test_login_no_num_2:
+#    num: 186104530071
+#    pwd: 12345678
+
+# [(18610453007, 1234), (18610453007, 23456778)]
+test_login_error_pwd:
+  test_login_error_pwd_1:
+    num: qewe
+    pwd: 122121
+  test_login_error_pwd_2:
+    num: 11212
+    pwd: 1212112
+
